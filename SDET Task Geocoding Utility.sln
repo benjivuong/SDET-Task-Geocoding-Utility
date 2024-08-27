@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDET Task Geocoding Utility", "SDET Task Geocoding Utility\SDET Task Geocoding Utility.csproj", "{CCEAD28E-B859-4212-99C4-3C91BBE9C484}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDETTaskGeocodingUtility", "SDET Task Geocoding Utility\SDETTaskGeocodingUtility.csproj", "{CCEAD28E-B859-4212-99C4-3C91BBE9C484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityIntegrationTests", "Utility Integration Tests\UtilityIntegrationTests.csproj", "{2FE39144-375C-480F-9409-7A8F6068F650}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CCEAD28E-B859-4212-99C4-3C91BBE9C484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCEAD28E-B859-4212-99C4-3C91BBE9C484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCEAD28E-B859-4212-99C4-3C91BBE9C484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE39144-375C-480F-9409-7A8F6068F650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE39144-375C-480F-9409-7A8F6068F650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE39144-375C-480F-9409-7A8F6068F650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE39144-375C-480F-9409-7A8F6068F650}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
