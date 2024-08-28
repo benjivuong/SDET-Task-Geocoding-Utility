@@ -59,18 +59,18 @@ namespace Utility_Integration_Tests
         public void Main_ReturnsCorrectInformation_WhenZipIsValid()
         {
             SetupUserResponses("12345", "QUIT");
-            var expectedResult = String.Format("{{\"zip\":\"12345\",\"name\":\"Schenectady\",\"lat\":42.8142,\"lon\":-73.9396,\"country\":\"US\"}}");
+            var expectedSubstring = "Name: Schenectady\tZip: 12345";
                 
             var outputLines = RunMainAndGetConsoleOutput();
 
-            Assert.AreEqual(expectedResult, outputLines[3]);
+            Assert.IsTrue(outputLines[3].Contains(expectedSubstring));
         }
 
         [TestMethod]
         public void Main_ReturnsCorrectInformation_WhenLocationNameIsValid()
         {
             SetupUserResponses("Madison,WI", "QUIT");
-            var expectedSubstring = "\"lat\":43.074761,\"lon\":-89.3837613,\"country\":\"US\",\"state\":\"Wisconsin\"";
+            var expectedSubstring = "Latitude: 43.07476\tLongitude: -89.38376";
 
             var outputLines = RunMainAndGetConsoleOutput();
 
@@ -82,6 +82,28 @@ namespace Utility_Integration_Tests
         {
             SetupUserResponses("Madison,WI", "12345", "QUIT");
             var expectedNumOutputs = 8;
+
+            var outputLines = RunMainAndGetConsoleOutput();
+
+            Assert.AreEqual(expectedNumOutputs, outputLines.Length);
+        }
+
+        [TestMethod]
+        public void Main_ReturnsEmptyLine_WhenNoLocationsAreFound()
+        {
+            SetupUserResponses("Neverland,WI", "QUIT");
+            var expectedResult = "";
+
+            var outputLines = RunMainAndGetConsoleOutput();
+
+            Assert.AreEqual(expectedResult, outputLines[3]);
+        }
+
+        [TestMethod]
+        public void Main_ReturnsOnlyTwoLines_WhenUserQuitsImmediately()
+        {
+            SetupUserResponses("QUIT");
+            var expectedNumOutputs = 2;
 
             var outputLines = RunMainAndGetConsoleOutput();
 

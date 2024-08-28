@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json;
+using SDET_Task_Geocoding_Utility;
+using System.Net;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("UtilityIntegrationTests")]
@@ -61,7 +63,9 @@ namespace SDETTaskGeocodingUtility
                 try
                 {
                     var json = await client.GetStringAsync(URI);
-                    Console.WriteLine(json);
+                    json = json.Substring(1, json.Length - 2);
+                    LocationInformation locationInformation = JsonConvert.DeserializeObject<LocationInformation>(json)!;
+                    Console.WriteLine(locationInformation);
                 }
                 catch (HttpRequestException ex)
                 {
@@ -90,7 +94,8 @@ namespace SDETTaskGeocodingUtility
                 try
                 {
                     var json = await client.GetStringAsync(URI);
-                    Console.WriteLine(json);
+                    LocationInformation locationInformation = JsonConvert.DeserializeObject<LocationInformation>(json)!;
+                    Console.WriteLine(locationInformation);
                 }
                 catch (HttpRequestException ex)
                 {
